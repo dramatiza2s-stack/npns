@@ -279,7 +279,7 @@
     if (musicBtn && bgMusic) {
       let musicPlaying = false;
       musicBtn.addEventListener('click', () => {
-        if (!bgMusic.src || bgMusic.src === window.location.href) {
+        if (false) {
           /* No hay fuente de música configurada — notificar al usuario */
           showMusicNote();
           return;
