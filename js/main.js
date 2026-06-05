@@ -27,8 +27,7 @@
     { name: 'Piscis',      en: 'Pisces',       emoji: '♓', dates: '19 Feb – 20 Mar' },
   ];
 
-  /* Contenido editorial de moda curado — para conectar a una API real,
-     reemplaza este array con el resultado de tu fetchFashion() */
+  /* Contenido editorial de moda curado() */
   const FASHION_CONTENT = [
     {
       emoji: '👗',
