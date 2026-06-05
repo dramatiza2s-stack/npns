@@ -427,17 +427,17 @@
 
     try {
       /* La API soporta: Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces */
-      const url = `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${sign.en}&day=today`;
+      const url = `https://freehoroscopeapi.com/api/v1/get-horoscope/daily?sign=${sign.en.toLowerCase()}&day=today`;
       const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
 
       if (!res.ok) throw new Error('API no disponible');
       const json = await res.json();
 
       const data = json.data;
-      if (!data || !data.horoscope_data) throw new Error('Sin datos');
+      if (!data || !data.horoscope) throw new Error('Sin datos');
 
       /* Traducir el texto al español con un mensaje introductorio */
-      const horoscopeText = data.horoscope_data;
+      const horoscopeText = data.horoscope;
       const dateStr = data.date || new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 
       panel.innerHTML = `
