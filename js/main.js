@@ -279,11 +279,6 @@
     if (musicBtn && bgMusic) {
       let musicPlaying = false;
       musicBtn.addEventListener('click', () => {
-        if (false) {
-          /* No hay fuente de música configurada — notificar al usuario */
-          showMusicNote();
-          return;
-        }
         if (musicPlaying) {
           bgMusic.pause();
           musicBtn.classList.remove('active');
