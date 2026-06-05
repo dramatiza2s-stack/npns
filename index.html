@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════════
+       SEO BÁSICO — edita título, descripción y URL canónica
+  ═══════════════════════════════════════════════════ -->
+  <title>NiPutaNiSanta — Sé tu mejor versión | Comunidad NPNSLovers</title>
+  <meta name="description" content="NiPutaNiSanta es la comunidad digital femenina donde el humor, la inspiración y el amor propio se encuentran. Frases, memes, reflexiones y tendencias para las NPNSLovers.">
+  <meta name="keywords" content="NiPutaNiSanta, NPNSLovers, frases inspiradoras, memes femeninos, amor propio, comunidad latina, humor, tendencias, moda, horóscopos">
+  <meta name="author" content="NiPutaNiSanta">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://niputa-nisanta.netlify.app">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NiPutaNiSanta — Sé tu mejor versión">
+  <meta property="og:description" content="Una comunidad con actitud, humor e inspiración. Frases, memes y estilo con identidad femenina.">
+  <meta property="og:url" content="https://niputa-nisanta.netlify.app">
+  <meta property="og:site_name" content="NiPutaNiSanta">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NiPutaNiSanta — Sé tu mejor versión">
+  <meta name="twitter:description" content="Una comunidad con actitud, humor e inspiración para las NPNSLovers.">
+
+  <!-- Fuentes: Cormorant Garamond (títulos elegantes) + DM Sans (cuerpo limpio) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+  <!-- Iconos: Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org markup para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NiPutaNiSanta",
+    "alternateName": "NPNS",
+    "url": "https://niputa-nisanta.netlify.app",
+    "description": "Comunidad digital femenina de frases, memes, inspiración y amor propio.",
+    "sameAs": [
+      "https://www.tiktok.com/@niputa_nisantaes",
+      "https://www.facebook.com/share/1B3RmsMF59/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "animehouse01@gmail.com",
+      "contactType": "customer support",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       CURSOR PERSONALIZADO (solo desktop con mouse)
+  ═══════════════════════════════════════════════════ -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       CONTROLES DE AUDIO — botón de sonidos SFX + música
+       Para agregar música: pon el archivo .mp3 en /assets/music.mp3
+       y cambia el src del elemento audio abajo
+  ═══════════════════════════════════════════════════ -->
+  <div class="audio-dock" role="region" aria-label="Controles de audio">
+    <button class="audio-btn" id="sfx-toggle" aria-label="Activar efectos de sonido" title="Efectos de sonido">
+      <i class="fa-solid fa-volume-xmark" id="sfx-icon"></i>
+    </button>
+    <button class="audio-btn" id="music-toggle" aria-label="Reproducir música de fondo" title="Música de fondo">
+      <i class="fa-solid fa-music"></i>
+    </button>
+    <!-- Reemplaza src con tu archivo de música -->
+    <audio id="bg-music" loop preload="none">
+      <source src="" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       HEADER / NAVBAR STICKY
+  ═══════════════════════════════════════════════════ -->
+  <header id="header" role="banner">
+    <nav class="nav-container" aria-label="Navegación principal">
+      <a href="#inicio" class="nav-logo" aria-label="NiPutaNiSanta — Inicio">
+        <span class="logo-ni">Ni</span><span class="logo-puta">Puta</span><span class="logo-ni">Ni</span><span class="logo-santa">Santa</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#inicio" class="nav-link">Inicio</a></li>
+        <li><a href="#comunidad" class="nav-link">Comunidad</a></li>
+        <li><a href="#contenido" class="nav-link">Contenido</a></li>
+        <li><a href="#horoscopos" class="nav-link">Horóscopos</a></li>
+        <li><a href="#moda" class="nav-link">Moda</a></li>
+        <li><a href="#legal" class="nav-link">Legal</a></li>
+        <li><a href="#redes" class="nav-link">Redes</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="#redes" class="btn-cta-nav">Únete a NPNSLovers</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+      <ul role="list">
+        <li><a href="#inicio" class="mobile-link">Inicio</a></li>
+        <li><a href="#comunidad" class="mobile-link">Comunidad</a></li>
+        <li><a href="#contenido" class="mobile-link">Contenido</a></li>
+        <li><a href="#horoscopos" class="mobile-link">Horóscopos</a></li>
+        <li><a href="#moda" class="mobile-link">Moda</a></li>
+        <li><a href="#legal" class="mobile-link">Legal</a></li>
+        <li><a href="#redes" class="mobile-link">Redes</a></li>
+        <li><a href="#contacto" class="mobile-link">Contacto</a></li>
+        <li><a href="#redes" class="mobile-link mobile-cta">Únete a NPNSLovers</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════════════
+         SECCIÓN 1 — HERO
+    ═══════════════════════════════════════════════════ -->
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <!-- Elementos decorativos de fondo -->
+      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+      <div class="hero-particles" id="particles" aria-hidden="true"></div>
+
+      <!-- Tarjetas flotantes decorativas tipo social media -->
+      <div class="floating-cards" aria-hidden="true">
+        <div class="float-card float-card-1">
+          <div class="float-card-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+          <p class="float-card-text">"No necesito permiso para brillar"</p>
+          <span class="float-card-tag">#AmosPropio</span>
+        </div>
+        <div class="float-card float-card-2">
+          <div class="float-card-header">
+            <div class="float-avatar">N</div>
+            <span>NPNSLovers</span>
+          </div>
+          <p class="float-card-text">El humor también es salud mental ✨</p>
+        </div>
+        <div class="float-card float-card-3">
+          <div class="float-card-icon star-icon"><i class="fa-solid fa-star"></i></div>
+          <p class="float-card-text">Hoy el universo conspiró para que fueras tú</p>
+          <span class="float-card-tag">Horóscopo del día</span>
+        </div>
+        <div class="float-card float-card-4">
+          <div class="float-card-trend"><i class="fa-solid fa-arrow-trend-up"></i> Trending</div>
+          <p class="float-card-text">Frases que te representan sin decir una sola palabra</p>
+        </div>
+      </div>
+
+      <!-- Contenido principal del hero -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-sparkles"></i>
+          <span>Comunidad NPNSLovers</span>
+        </div>
+
+        <h1 id="hero-title" class="hero-title">
+          <span class="hero-line-1">Ni Santa.</span>
+          <span class="hero-line-2">Ni Perfecta.</span>
+          <span class="hero-line-3">Solo tú, <em>auténtica.</em></span>
+        </h1>
+
+        <p class="hero-slogan">Sé tu mejor versión</p>
+
+        <p class="hero-desc">
+          Un espacio digital donde el humor, la inspiración y el amor propio se encuentran.
+          Para las que se ríen de todo, sueñan en grande y viven con actitud.
+          Bienvenida a la comunidad que siempre estuvo esperándote.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="https://www.tiktok.com/@niputa_nisantaes" target="_blank" rel="noopener noreferrer" class="btn-primary hero-btn-tiktok" aria-label="Seguir en TikTok @niputa_nisantaes">
+            <i class="fa-brands fa-tiktok"></i>
+            Síguenos en TikTok
+          </a>
+          <a href="#comunidad" class="btn-secondary">
+            Explora la comunidad
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+
+        <div class="hero-stats" role="list" aria-label="Estadísticas de la comunidad">
+          <div class="hero-stat" role="listitem">
+            <strong>+47k</strong>
+            <span>Seguidoras</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat" role="listitem">
+            <strong>3</strong>
+            <span>Redes activas</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat" role="listitem">
+            <strong>Diario</strong>
+            <span>Contenido nuevo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decoración de scroll -->
+      <a href="#comunidad" class="scroll-indicator" aria-label="Ir a la sección Comunidad">
+        <div class="scroll-dot"></div>
+        <span>Desliza para descubrir</span>
+      </a>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ESPACIO PUBLICITARIO 1 — Después del hero
+         Para activar AdSense: reemplaza este bloque con el código de Google AdSense
+    ═══════════════════════════════════════════════════ -->
+    <div class="ad-zone ad-zone-horizontal" role="complementary" aria-label="Espacio publicitario">
+      <div class="ad-placeholder">
+        <i class="fa-regular fa-rectangle-ad"></i>
+        <span>Espacio publicitario</span>
+        <!-- Aquí va el código de Google AdSense cuando esté aprobado -->
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECCIÓN 2 — QUÉ ES NIPUTANISANTA
+    ═══════════════════════════════════════════════════ -->
+    <section id="comunidad" class="section-about reveal-section" aria-labelledby="about-title">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag">Nuestra identidad</div>
+          <h2 id="about-title" class="section-title">¿Qué es <br><em>NiPutaNiSanta?</em></h2>
+          <p class="section-subtitle">
+            NiPutaNiSanta es mucho más que un nombre: es una declaración de autenticidad.
+            Somos una comunidad digital creada para mujeres que no encajan en moldes ajenos,
+            que celebran sus contradicciones y que encuentran en el humor, la inspiración y
+            la identidad colectiva una forma de vivir mejor.
+          </p>
+          <p class="section-text">
+            <strong>NPNSLovers somos todas:</strong> la que llora viendo memes a medianoche,
+            la que comparte frases que la describen sin palabras, la que se inspira en el scroll
+            diario, la que encuentra en esta comunidad un espejo de su propia historia.
+            No hay molde. No hay etiqueta. Solo hay una versión de ti que merece ser celebrada.
+          </p>
+        </div>
+
+        <div class="topics-grid" role="list" aria-label="Temas de la comunidad">
+          <article class="topic-card reveal-item" role="listitem">
+            <div class="topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-comment-dots"></i>
+            </div>
+            <h3>Frases con actitud</h3>
+            <p>Palabras que resuenan, que se comparten, que duelen bonito y que te recuerdan quién eres cuando lo olvidas.</p>
+          </article>
+
+          <article class="topic-card reveal-item" role="listitem">
+            <div class="topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-face-laugh-squint"></i>
+            </div>
+            <h3>Memes con identidad</h3>
+            <p>Humor que nos representa, que nos une y que nos hace sentir menos solas en nuestras propias historias cotidianas.</p>
+          </article>
+
+          <article class="topic-card reveal-item" role="listitem">
+            <div class="topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3>Amor propio</h3>
+            <p>Porque cuidarte no es egoísmo, es revolución. Contenido que te recuerda que mereces lo que das a los demás.</p>
+          </article>
+
+          <article class="topic-card reveal-item" role="listitem">
+            <div class="topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-sun"></i>
+            </div>
+            <h3>Inspiración diaria</h3>
+            <p>Cada día una razón nueva para elegirte primero a ti. Reflexiones que te acompañan en el café de la mañana.</p>
+          </article>
+
+          <article class="topic-card reveal-item" role="listitem">
+            <div class="topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <h3>Comunidad</h3>
+            <p>Un espacio seguro para ser tú sin explicaciones. Aquí se construye tribu, no competencia.</p>
+          </article>
+
+          <article class="topic-card reveal-item" role="listitem">
+            <div class="topic-icon" aria-hidden="true">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <h3>Tendencias sociales</h3>
+            <p>Conectadas con lo que pasa, con lo que importa, con lo que mueve al mundo y a las mujeres que lo habitan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECCIÓN 3 — A QUÉ NOS DEDICAMOS
+    ═══════════════════════════════════════════════════ -->
+    <section id="contenido" class="section-purpose reveal-section" aria-labelledby="purpose-title">
+      <div class="section-container">
+        <div class="purpose-layout">
+          <div class="purpose-text-col">
+            <div class="section-tag">Nuestro propósito</div>
+            <h2 id="purpose-title" class="section-title">A qué nos<br><em>dedicamos</em></h2>
+            <p class="section-text">
+              NiPutaNiSanta nace de la necesidad de tener un espacio digital propio:
+              un lugar donde el contenido esté pensado por y para mujeres reales, con
+              experiencias reales, sin filtros de perfección ni presión de apariencia.
+            </p>
+            <p class="section-text">
+              Nos dedicamos a la creación y curación de contenido social de alta resonancia
+              emocional: frases que circulan porque tocan fibras verdaderas, memes que se
+              comparten porque todos los hemos vivido, reflexiones que abren conversaciones
+              importantes y tendencias culturales que moldean la identidad femenina contemporánea.
+            </p>
+            <p class="section-text">
+              Nuestra misión es construir comunidad auténtica en redes sociales, un lugar
+              donde cada mujer se sienta representada, inspirada y acompañada en su proceso
+              de convertirse en su mejor versión.
+            </p>
+          </div>
+
+          <div class="purpose-cards-col">
+            <div class="purpose-card reveal-item">
+              <div class="purpose-card-num">01</div>
+              <div class="purpose-card-content">
+                <h3>Contenido social compartible</h3>
+                <p>Creamos material diseñado para resonar, conectar y ser compartido. Cada pieza lleva una intención: que alguien piense "esto soy yo".</p>
+              </div>
+            </div>
+
+            <div class="purpose-card reveal-item">
+              <div class="purpose-card-num">02</div>
+              <div class="purpose-card-content">
+                <h3>Curación de frases y mensajes</h3>
+                <p>Seleccionamos y producimos frases con criterio editorial: que sean bellas, auténticas y capaces de tocar algo real en quien las lee.</p>
+              </div>
+            </div>
+
+            <div class="purpose-card reveal-item">
+              <div class="purpose-card-num">03</div>
+              <div class="purpose-card-content">
+                <h3>Humor e identidad</h3>
+                <p>El humor como herramienta de conexión. Memes que no ofenden, que abrazan, que dicen lo que a veces no sabemos cómo expresar.</p>
+              </div>
+            </div>
+
+            <div class="purpose-card reveal-item">
+              <div class="purpose-card-num">04</div>
+              <div class="purpose-card-content">
+                <h3>Inspiración femenina</h3>
+                <p>Contenido que celebra el empoderamiento sin clichés: desde la mujer que madruga hasta la que vive a su propio ritmo.</p>
+              </div>
+            </div>
+
+            <div class="purpose-card reveal-item">
+              <div class="purpose-card-num">05</div>
+              <div class="purpose-card-content">
+                <h3>Cultura visual y tendencias</h3>
+                <p>Estamos al tanto de lo que mueve a las redes: estética, moda, lenguaje visual y las corrientes culturales que definen esta época.</p>
+              </div>
+            </div>
+
+            <div class="purpose-card reveal-item">
+              <div class="purpose-card-num">06</div>
+              <div class="purpose-card-content">
+                <h3>Presencia en redes sociales</h3>
+                <p>Activas en TikTok, Facebook y más. Llevamos nuestra comunidad a donde están las mujeres que queremos acompañar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ESPACIO PUBLICITARIO 2 — Mitad del contenido
+    ═══════════════════════════════════════════════════ -->
+    <div class="ad-zone ad-zone-horizontal" role="complementary" aria-label="Espacio publicitario">
+      <div class="ad-placeholder">
+        <i class="fa-regular fa-rectangle-ad"></i>
+        <span>Espacio publicitario</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECCIÓN 4 — SER NPNSLOVER
+    ═══════════════════════════════════════════════════ -->
+    <section class="section-lovers reveal-section" aria-labelledby="lovers-title">
+      <div class="section-container">
+        <div class="section-header lovers-header">
+          <div class="section-tag">Identidad de comunidad</div>
+          <h2 id="lovers-title" class="section-title">¿Qué significa<br>ser <em>NPNSLover?</em></h2>
+          <p class="section-subtitle">
+            Pertenecer a la comunidad NPNSLovers no necesita certificado ni requisitos.
+            Solo necesitas una cosa: ser tú. Con todo lo que eso implica.
+          </p>
+        </div>
+
+        <div class="lovers-grid">
+          <article class="lover-card lover-card-large reveal-item">
+            <div class="lover-card-glow" aria-hidden="true"></div>
+            <div class="lover-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <h3>Expresarte</h3>
+            <p>En NPNSLovers tienes voz. Compartes lo que sientes, lo que piensas, lo que amas y lo que te hace reír. Sin juicios. Sin moldes.</p>
+            <div class="lover-quote">"Tu historia merece ser contada"</div>
+          </article>
+
+          <article class="lover-card reveal-item">
+            <div class="lover-card-glow" aria-hidden="true"></div>
+            <div class="lover-icon"><i class="fa-solid fa-face-laugh-beam"></i></div>
+            <h3>Reírte</h3>
+            <p>El humor es nuestro lenguaje. Aquí nos reímos juntas de las cosas que solo las mujeres entendemos.</p>
+          </article>
+
+          <article class="lover-card reveal-item">
+            <div class="lover-card-glow" aria-hidden="true"></div>
+            <div class="lover-icon"><i class="fa-solid fa-mirror"></i></div>
+            <h3>Identificarte</h3>
+            <p>Cada frase, cada meme, cada reflexión está hecha para que digas: "esto soy exactamente yo".</p>
+          </article>
+
+          <article class="lover-card lover-card-large reveal-item">
+            <div class="lover-card-glow" aria-hidden="true"></div>
+            <div class="lover-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Inspirarte</h3>
+            <p>Contenido que te empuja a ser más tú, a cuidarte más, a quererte más. La inspiración que necesitas para elegirte a ti primero.</p>
+            <div class="lover-quote">"Eres suficiente, siempre"</div>
+          </article>
+
+          <article class="lover-card lover-card-center reveal-item">
+            <div class="lover-card-glow" aria-hidden="true"></div>
+            <div class="lover-icon"><i class="fa-solid fa-share-nodes"></i></div>
+            <h3>Compartir</h3>
+            <p>Porque las cosas buenas se comparten. Difunde el contenido que te representa y lleva a tus amigas a esta comunidad.</p>
+          </article>
+        </div>
+
+        <div class="lovers-cta reveal-item">
+          <p class="lovers-cta-text">Una comunidad con actitud, humor e inspiración. Para las que son todo y nada al mismo tiempo.</p>
+          <a href="#redes" class="btn-primary">Únete ahora <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECCIÓN 5 — HORÓSCOPOS DEL DÍA
+         API: https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily
+         Para cambiar la fuente de datos, edita la función fetchHoroscope() en js/main.js
+    ═══════════════════════════════════════════════════ -->
+    <section id="horoscopos" class="section-horoscopes reveal-section" aria-labelledby="horoscope-title">
+      <div class="horoscope-bg-glow" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag mystic-tag">
+            <i class="fa-solid fa-moon"></i> Místico
+          </div>
+          <h2 id="horoscope-title" class="section-title">Horóscopos<br><em>del día</em></h2>
+          <p class="section-subtitle">El universo tiene algo que decirte hoy. Selecciona tu signo y descubre tu mensaje.</p>
+          <p class="horoscope-update-note">
+            <i class="fa-solid fa-rotate"></i>
+            Contenido actualizado automáticamente · <span id="horoscope-date">Cargando fecha...</span>
+          </p>
+        </div>
+
+        <!-- Selector de signos -->
+        <div class="zodiac-grid" role="list" aria-label="Selecciona tu signo zodiacal" id="zodiac-grid">
+          <!-- Los signos se generan con JavaScript para mantener el código DRY -->
+        </div>
+
+        <!-- Panel del horóscopo -->
+        <div class="horoscope-panel" id="horoscope-panel" aria-live="polite" aria-label="Horóscopo del signo seleccionado">
+          <div class="horoscope-welcome">
+            <i class="fa-solid fa-stars"></i>
+            <p>Selecciona tu signo para ver tu horóscopo del día</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECCIÓN 6 — MODA DE TEMPORADA
+         Para conectar una fuente de datos real:
+         - Opción A: Usa un RSS feed + una Netlify Function que lo parsee en JSON
+           y llama a /.netlify/functions/fashion desde fetchFashion() en main.js
+         - Opción B: Usa NewsAPI (newsapi.org) con tu API key en una Netlify Function
+           para no exponer la key en el frontend
+         - Edita la función fetchFashion() en js/main.js para adaptar el endpoint
+    ═══════════════════════════════════════════════════ -->
+    <section id="moda" class="section-fashion reveal-section" aria-labelledby="fashion-title">
+      <div class="section-container">
+        <div class="fashion-header">
+          <div>
+            <div class="section-tag editorial-tag">
+              <i class="fa-solid fa-shirt"></i> Editorial
+            </div>
+            <h2 id="fashion-title" class="section-title">Tendencias<br><em>del momento</em></h2>
+            <p class="section-subtitle">Lo que está moviendo el mundo de la moda femenina esta temporada.</p>
+          </div>
+          <div class="fashion-meta">
+            <p class="fashion-update">
+              <i class="fa-solid fa-calendar-check"></i>
+              Actualizado: <span id="fashion-date">hoy</span>
+            </p>
+            <p class="fashion-source-note">Contenido editorial curado por NPNSLovers</p>
+          </div>
+        </div>
+
+        <div class="fashion-grid" id="fashion-grid" aria-label="Artículos de moda y tendencias">
+          <!-- Skeleton de carga -->
+          <div class="fashion-skeleton" aria-label="Cargando contenido...">
+            <div class="skeleton-card"><div class="sk-img"></div><div class="sk-tag"></div><div class="sk-title"></div><div class="sk-text"></div></div>
+            <div class="skeleton-card"><div class="sk-img"></div><div class="sk-tag"></div><div class="sk-title"></div><div class="sk-text"></div></div>
+            <div class="skeleton-card"><div class="sk-img"></div><div class="sk-tag"></div><div class="sk-title"></div><div class="sk-text"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ESPACIO PUBLICITARIO 3 — Antes del footer
+    ═══════════════════════════════════════════════════ -->
+    <div class="ad-zone ad-zone-horizontal" role="complementary" aria-label="Espacio publicitario">
+      <div class="ad-placeholder">
+        <i class="fa-regular fa-rectangle-ad"></i>
+        <span>Espacio publicitario</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECCIÓN 7 — INFORMACIÓN LEGAL
+    ═══════════════════════════════════════════════════ -->
+    <section id="legal" class="section-legal reveal-section" aria-labelledby="legal-title">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag">Transparencia</div>
+          <h2 id="legal-title" class="section-title">Información<br><em>legal</em></h2>
+          <p class="section-subtitle">
+            La transparencia es parte de quienes somos. Estos documentos explican cómo
+            protegemos tu información y cómo gestionamos la propiedad de nuestro contenido.
+          </p>
+        </div>
+
+        <div class="legal-cards">
+          <article class="legal-card reveal-item">
+            <div class="legal-card-icon" aria-hidden="true">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="legal-card-body">
+              <h3>Política de Privacidad</h3>
+              <p>
+                Explicamos qué datos recopilamos, cómo los usamos y cómo protegemos
+                tu información personal. Tu privacidad es una prioridad para nosotras.
+              </p>
+              <ul class="legal-points">
+                <li>Datos recopilados y finalidad</li>
+                <li>Uso de cookies y analítica</li>
+                <li>Tus derechos como usuaria</li>
+                <li>Contacto para solicitudes</li>
+              </ul>
+            </div>
+            <div class="legal-card-actions">
+              <a href="/legal/privacidad.html" class="btn-legal" target="_blank" rel="noopener noreferrer" aria-label="Ver política de privacidad (abre en nueva pestaña)">
+                <i class="fa-solid fa-eye"></i> Ver documento
+              </a>
+              <a href="/legal/privacidad.html" download="NPNS-Politica-de-Privacidad.html" class="btn-legal btn-legal-download" aria-label="Descargar política de privacidad">
+                <i class="fa-solid fa-download"></i> Descargar
+              </a>
+            </div>
+          </article>
+
+          <article class="legal-card reveal-item">
+            <div class="legal-card-icon" aria-hidden="true">
+              <i class="fa-solid fa-copyright"></i>
+            </div>
+            <div class="legal-card-body">
+              <h3>Propiedad Intelectual y Autoría</h3>
+              <p>
+                Todo el contenido de NiPutaNiSanta está protegido. Aquí describimos
+                los términos de uso de nuestro material y los derechos de autoría.
+              </p>
+              <ul class="legal-points">
+                <li>Propiedad del contenido NPNS</li>
+                <li>Uso permitido y restricciones</li>
+                <li>Reporte de infracciones</li>
+                <li>Créditos y colaboraciones</li>
+              </ul>
+            </div>
+            <div class="legal-card-actions">
+              <a href="/legal/propiedad-intelectual.html" class="btn-legal" target="_blank" rel="noopener noreferrer" aria-label="Ver política de propiedad intelectual (abre en nueva pestaña)">
+                <i class="fa-solid fa-eye"></i> Ver documento
+              </a>
+              <a href="/legal/propiedad-intelectual.html" download="NPNS-Propiedad-Intelectual.html" class="btn-legal btn-legal-download" aria-label="Descargar política de propiedad intelectual">
+                <i class="fa-solid fa-download"></i> Descargar
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="legal-note reveal-item">
+          <i class="fa-solid fa-circle-info"></i>
+          <p>
+            Estos documentos están en revisión y actualización continua. Para consultas legales
+            o reportar un problema, escríbenos a
+            <a href="mailto:animehouse01@gmail.com">animehouse01@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECCIÓN 8 — REDES SOCIALES Y CONTACTO
+         Para cambiar los enlaces de redes: busca los href en esta sección
+    ═══════════════════════════════════════════════════ -->
+    <section id="redes" class="section-social reveal-section" aria-labelledby="social-title">
+      <div class="social-bg-glow" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag">Síguenos</div>
+          <h2 id="social-title" class="section-title">Encuéntranos<br>en <em>redes</em></h2>
+          <p class="section-subtitle">
+            Cada red es un mundo diferente. Síguenos donde más te guste y únete
+            a miles de NPNSLovers que ya forman parte de esta comunidad.
+          </p>
+        </div>
+
+        <div class="social-cards">
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@niputa_nisantaes"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="social-card social-card-tiktok reveal-item"
+             aria-label="Seguir a NiPutaNiSanta en TikTok — @niputa_nisantaes">
+            <div class="social-card-glow" aria-hidden="true"></div>
+            <div class="social-icon-wrap">
+              <i class="fa-brands fa-tiktok"></i>
+            </div>
+            <div class="social-card-info">
+              <h3>TikTok</h3>
+              <p class="social-handle">@niputa_nisantaes</p>
+              <p class="social-desc">Videos, frases, memes y tendencias en formato corto. Nuestro espacio más activo.</p>
+            </div>
+            <div class="social-card-cta">
+              Seguir en TikTok <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/share/1B3RmsMF59/?mibextid=wwXIfr"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="social-card social-card-facebook reveal-item"
+             aria-label="Seguir a NiPutaNiSanta en Facebook">
+            <div class="social-card-glow" aria-hidden="true"></div>
+            <div class="social-icon-wrap">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="social-card-info">
+              <h3>Facebook</h3>
+              <p class="social-handle">NiPutaNiSanta</p>
+              <p class="social-desc">Frases, comunidad y conversación. Donde la familia NPNSLovers crece cada día.</p>
+            </div>
+            <div class="social-card-cta">
+              Seguir en Facebook <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:animehouse01@gmail.com"
+             class="social-card social-card-email reveal-item"
+             aria-label="Contactar a NiPutaNiSanta por correo electrónico">
+            <div class="social-card-glow" aria-hidden="true"></div>
+            <div class="social-icon-wrap">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="social-card-info">
+              <h3>Correo</h3>
+              <p class="social-handle">animehouse01@gmail.com</p>
+              <p class="social-desc">Para colaboraciones, prensa, reportes legales o simplemente decirnos algo bonito.</p>
+            </div>
+            <div class="social-card-cta">
+              Escribir correo <i class="fa-solid fa-paper-plane"></i>
+            </div>
+          </a>
+        </div>
+
+        <div class="social-community-cta reveal-item">
+          <div class="community-cta-glow" aria-hidden="true"></div>
+          <div class="community-cta-content">
+            <h3>¿Lista para ser NPNSLover?</h3>
+            <p>Únete a una comunidad que te abraza tal como eres, con todo y tus contradicciones. Porque eso es exactamente lo que hace que seamos únicas.</p>
+            <div class="community-cta-btns">
+              <a href="https://www.tiktok.com/@niputa_nisantaes" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <i class="fa-brands fa-tiktok"></i> Seguir en TikTok
+              </a>
+              <a href="https://www.facebook.com/share/1B3RmsMF59/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <i class="fa-brands fa-facebook-f"></i> Unirse en Facebook
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer id="contacto" class="footer" role="contentinfo">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-ni">Ni</span><span class="logo-puta">Puta</span><span class="logo-ni">Ni</span><span class="logo-santa">Santa</span>
+          </div>
+          <p class="footer-slogan">sé tu mejor versión</p>
+          <p class="footer-desc">Sitio informativo oficial de la comunidad NiPutaNiSanta. Un espacio para compartir, reír y conectar.</p>
+          <div class="footer-social-row" aria-label="Redes sociales de NiPutaNiSanta">
+            <a href="https://www.tiktok.com/@niputa_nisantaes" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1B3RmsMF59/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="mailto:animehouse01@gmail.com" class="footer-social-btn" aria-label="Correo electrónico">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navegación del pie de página">
+          <div class="footer-nav-col">
+            <h4>Explorar</h4>
+            <ul role="list">
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#comunidad">Comunidad</a></li>
+              <li><a href="#contenido">Contenido</a></li>
+              <li><a href="#horoscopos">Horóscopos</a></li>
+              <li><a href="#moda">Moda</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h4>Comunidad</h4>
+            <ul role="list">
+              <li><a href="#redes">Redes sociales</a></li>
+              <li><a href="mailto:animehouse01@gmail.com">Contacto</a></li>
+              <li><a href="https://www.tiktok.com/@niputa_nisantaes" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+              <li><a href="https://www.facebook.com/share/1B3RmsMF59/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h4>Legal</h4>
+            <ul role="list">
+              <li><a href="/legal/privacidad.html" target="_blank" rel="noopener noreferrer">Política de privacidad</a></li>
+              <li><a href="/legal/propiedad-intelectual.html" target="_blank" rel="noopener noreferrer">Propiedad intelectual</a></li>
+              <li><a href="mailto:animehouse01@gmail.com">Reportar contenido</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; <span id="footer-year">2024</span> NiPutaNiSanta · Comunidad NPNSLovers · Todos los derechos reservados.
+        </p>
+        <p class="footer-site-note">
+          Sitio informativo oficial de la comunidad NiPutaNiSanta
+        </p>
+        <p class="footer-contact-line">
+          Contacto: <a href="mailto:animehouse01@gmail.com">animehouse01@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
