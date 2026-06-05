@@ -515,26 +515,50 @@
      3. Devuelve un JSON con el formato { articles: [{emoji, category, title, text, gradient}] }
      4. Cambia la URL del fetch abajo a '/.netlify/functions/fashion'
   ─────────────────────────────────────────────────────────────── */
-  function renderFashion() {
-    const grid = document.getElementById('fashion-grid');
-    if (!grid) return;
+async function renderFashion() {
+      const grid = document.getElementById('fashion-grid');
+      if (!grid) return;
 
-    const html = FASHION_CONTENT.map((item, i) => `
-      <article class="fashion-card" style="animation-delay:${i * 0.1}s">
-        <div class="fashion-card-img" style="background:${item.gradient}" aria-hidden="true">
-          <span style="font-size:3.5rem;z-index:1;position:relative">${item.emoji}</span>
-        </div>
-        <div class="fashion-card-body">
-          <p class="fashion-card-cat">${item.category}</p>
-          <h3 class="fashion-card-title">${item.title}</h3>
-          <p class="fashion-card-text">${item.text}</p>
-          <p class="fashion-card-date">NPNSLovers · Temporada actual</p>
-        </div>
-      </article>
-    `).join('');
+      // Mostrar skeleton loading
+      grid.innerHTML = Array(6).fill(`
+        <article class="fashion-card fashion-card--skeleton">
+          <div class="fashion-card-img" aria-hidden="true"></div>
+          <div class="fashion-card-body">
+            <p class="fashion-card-cat skeleton-line"></p>
+            <h3 class="skeleton-line skeleton-line--title"></h3>
+            <p class="skeleton-line skeleton-line--text"></p>
+          </div>
+        </article>
+      `).join('');
 
-    grid.innerHTML = html;
-  }
+      let articles;
+      try {
+        const res = await fetch('/.netlify/functions/fashion');
+        if (!res.ok) throw new Error('network');
+        const data = await res.json();
+        articles = data.articles || [];
+      } catch (e) {
+        // Si la función no existe aún, usa contenido estático
+        articles = FASHION_CONTENT;
+      }
+
+      if (!articles.length) articles = FASHION_CONTENT;
+
+      grid.innerHTML = articles.map((item, i) => `
+        <article class="fashion-card reveal-item" style="background:${item.gradient};animation-delay:${i * 0.1}s"${item.url ? ` onclick="window.open('${item.url}','_blank')" role="link" tabindex="0"` : ''}>
+          <div class="fashion-card-img" style="background:${item.gradient}" aria-hidden="true">
+            ${item.image ? `<img src="${item.image}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+            <span style="font-size:3.5rem;z-index:1;position:relative">${item.emoji}</span>
+          </div>
+          <div class="fashion-card-body">
+            <p class="fashion-card-cat">${item.category}</p>
+            <h3 class="fashion-card-title">${item.title}</h3>
+            <p class="fashion-card-text">${item.text ? item.text.slice(0, 160) + (item.text.length > 160 ? '…' : '') : ''}</p>
+            <p class="fashion-card-date">${item.date || 'NPNSLovers · Temporada actual'}${item.url ? ' →' : ''}</p>
+          </div>
+        </article>
+      `).join('');
+    }
 
   /* ─── SMOOTH SCROLL PARA NAVEGACIÓN ──────────────────────── */
   function initSmoothScroll() {
