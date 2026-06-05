@@ -595,7 +595,7 @@ async function renderFashion() {
   }
 
   /* ─── INICIALIZACIÓN ──────────────────────────────────────── */
-  function init() {
+  async function init() {
     initCursor();
     initHeader();
     initMobileMenu();
@@ -605,7 +605,7 @@ async function renderFashion() {
     initParticles();
     setDates();
     initZodiacGrid();
-    renderFashion();
+    await renderFashion();
     initSmoothScroll();
     initParallax();
     initHeroHighlight();
